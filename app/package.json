@@ -1,0 +1,29 @@
+{
+  "name": "codex-canvas-workbench",
+  "version": "0.1.0",
+  "private": true,
+  "main": "dist/main/index.js",
+  "scripts": {
+    "dev": "concurrently -k \"tsc -p tsconfig.main.json --watch\" \"vite\" \"wait-on dist/main/index.js tcp:5174 && VITE_DEV_SERVER_URL=http://localhost:5174 electron .\"",
+    "build": "tsc -p tsconfig.main.json && vite build --outDir dist/renderer",
+    "pack": "npm run build && electron-builder --dir",
+    "dist": "npm run build && electron-builder"
+  },
+  "dependencies": {
+    "electron": "^30.0.0",
+    "keytar": "^7.9.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.3",
+    "concurrently": "^9.1.2",
+    "electron-builder": "^25.1.8",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.10",
+    "wait-on": "^7.2.0"
+  }
+}

@@ -1,0 +1,12 @@
+appId: com.codex.canvas.workbench
+productName: Codex Canvas Workbench
+files:
+  - dist/**
+  - package.json
+asar: true
+mac:
+  target: dmg
+win:
+  target: nsis
+linux:
+  target: AppImage
